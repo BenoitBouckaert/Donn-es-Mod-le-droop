@@ -1,4 +1,4 @@
-# Project Name
+# Simulation data processing and analysis
 
 This project processes data from a matlab simulation of a DC microgrid. These data will be used in a scientific paper that is currently in preparation.
 
