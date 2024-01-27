@@ -78,7 +78,11 @@ def _plot_areas(data, X, Y, legend=None):
     plotly.graph_objects.Figure: The plotly figure object.
     """
     fig = go.Figure()
-    for y in Y:
-        fig.add_trace(go.Scatter(x=data[X], y=data[y], mode='lines', stackgroup='one'))
+    for x in X:
+        for i in range(len(Y)):
+            try:
+                fig.add_trace(go.Scatter(x=data[x], y=data[Y[i]], mode='lines', stackgroup='one', name=legend[i]))
+            except TypeError:
+                fig.add_trace(go.Scatter(x=data[x], y=data[Y[i]], mode='lines', stackgroup='one'))
     
     return fig
