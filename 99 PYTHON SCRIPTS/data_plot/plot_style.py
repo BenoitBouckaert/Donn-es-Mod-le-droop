@@ -16,10 +16,12 @@ def style(plt_obj, style='display', title='title', X_label='', Y_label='', X_uni
     None
     """
     
+    print(f'{Y_label} (${Y_unit}$)')
+
     plt_obj.update_layout(
         title=title,
-        xaxis_title=X_label + ' ($' + X_unit + '$)',
-        yaxis_title=Y_label + ' ($' + Y_unit + '$)'
+        xaxis_title=f'{X_label} (${X_unit}$)',
+        yaxis_title=f'{Y_label} (${Y_unit}$)'
     )
 
     if style == 'display':

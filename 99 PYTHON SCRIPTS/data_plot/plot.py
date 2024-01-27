@@ -38,7 +38,8 @@ def plot(filename, X, Y, type='line', title='title', X_label='', Y_label='', X_u
     else:
         raise ValueError("Invalid plot type")
     
-    stl(plt_obj, title, X_label, Y_label, X_unit, Y_unit, style, **kwargs)
+    stl(plt_obj, title=title, style=style, X_label=X_label, Y_label=Y_label, 
+        X_unit=X_unit, Y_unit=Y_unit, **kwargs)
     display(plt_obj, style)
 
 
