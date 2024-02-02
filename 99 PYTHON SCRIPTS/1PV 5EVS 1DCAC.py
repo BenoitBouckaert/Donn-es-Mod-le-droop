@@ -25,3 +25,13 @@ plot(PROCESSED_FILE_PATH, ['Time'], ['P_EVs1', 'P_EVs2', 'P_EVs3', 'P_EVs4', 'P_
      Y_label='Power', Y_unit='W', style='display', legend=['$P_{EVs_1}$', '$P_{EVs_2}$', 
                                                            '$P_{EVs_3}$', '$P_{EVs_4}$', 
                                                            '$P_{EVs_5}$'])
+
+# 4. 'P_ACDC' vs 'U_DC' as a scatter plot
+plot(PROCESSED_FILE_PATH, ['U_DC'], ['P_acdc'], type='scatter', title='P_acdc vs U_DC', 
+     Y_label='Power', Y_unit='W', X_label='bus Voltage', X_unit='V', style='display')
+
+# 5. 'P_EVs1', 'P_EVs2', 'P_EVs3', 'P_EVs4', and 'P_EVs5' vs 'U_DC' as a scatter plot
+plot(PROCESSED_FILE_PATH, ['U_DC'], ['P_EVs1', 'P_EVs2', 'P_EVs3', 'P_EVs4', 'P_EVs5'], 
+     type='scatter', title='P_EVs1, P_EVs2, P_EVs3, P_EVs4, and P_EVs5 vs U_DC', 
+     Y_label='Power', Y_unit='W', X_label='bus Voltage', X_unit='V', style='display', 
+     legend=['$P_{EVs_1}$', '$P_{EVs_2}$', '$P_{EVs_3}$', '$P_{EVs_4}$', '$P_{EVs_5}$'])

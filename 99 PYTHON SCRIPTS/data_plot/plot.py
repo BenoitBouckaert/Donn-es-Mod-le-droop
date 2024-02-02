@@ -35,6 +35,8 @@ def plot(filename, X, Y, type='line', title='title', X_label='', Y_label='', X_u
         plt_obj = _plot_line(data, X, Y, legend=legend)
     elif type == 'areas':
         plt_obj = _plot_areas(data, X, Y, legend=legend)
+    elif type == 'scatter':
+        plt_obj = _plot_scatter(data, X, Y, legend=legend)
     else:
         raise ValueError("Invalid plot type")
     
@@ -86,4 +88,26 @@ def _plot_areas(data, X, Y, legend=None):
             except TypeError:
                 fig.add_trace(go.Scatter(x=data[x], y=data[Y[i]], mode='lines', stackgroup='one'))
     
+    return fig
+
+def _plot_scatter(data, X, Y, legend=None):
+    """
+    Plot a scatter graph using Plotly graph objects.
+
+    Parameters:
+    data (pandas.DataFrame): The data to be plotted.
+    Y (str): The columns names for the Y-axis data.
+    X (str): The column name for the X-axis data.
+    legend (list, optional): The legend labels for the data. Defaults to None.
+
+    Returns:
+    plotly.graph_objects.Figure: The plotly figure object.
+    """
+    fig = go.Figure()
+    for x in X:
+        for i in range(len(Y)):
+            try:
+                fig.add_trace(go.Scatter(x=data[x], y=data[Y[i]], mode='markers', name=legend[i]))
+            except TypeError:
+                fig.add_trace(go.Scatter(x=data[x], y=data[Y[i]], mode='markers'))
     return fig
